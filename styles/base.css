@@ -15,7 +15,7 @@ body {
   background-color: #222;
 }
 
-/* navigation bar */
+/* --------------- NAVIGATION BAR --------------- */
 .nav-bar {
   z-index: 100;
   position: fixed;
@@ -96,11 +96,11 @@ body {
   }
 }
 
-/* hero section --------------------------- */
+/* --------------- HERO SECTION --------------- */
 .hero-section {
   min-height: 540px;
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 2%, #222),
-    url("./src/imgs/see_sunset.jpg");
+    url("../resources/imgs/see_sunset.jpg");
   background-position: 0 0, 100% 0;
   background-size: cover;
   display: flex;
@@ -110,7 +110,12 @@ body {
 .headline {
   font-weight: 300;
   font-size: 3.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: 300;
 }
 
 section {
@@ -119,11 +124,6 @@ section {
 
 .with-separation {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.subtitle {
-  font-size: 2rem;
-  font-weight: 300;
 }
 
 .bold-it {
@@ -159,62 +159,12 @@ section {
   color: white;
 }
 
-/* --------------------------------- specific ones */
+@media screen and (max-width: 768px) {
+  .headline {
+    font-size: 2rem;
+  }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 15px;
-  margin-top: 50px;
-}
-
-.project-img {
-  transition: all 0.2s ease;
-  width: 100%;
-  cursor: pointer;
-}
-
-.project-img:hover {
-  transform: scale(1.1);
-}
-
-.contact-grid {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-bottom: 60px;
-}
-
-.contact-icon {
-  font-size: 2.2rem;
-  color: #00d6b4;
-}
-
-.icon-title {
-  margin: 21px 0 10px 0;
-  font-size: 1.5rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-a.contact-icon {
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-a.contact-icon:hover {
-  transform: scale(1.2);
-  color: white;
-}
-
-.icon-desc {
-  font-weight: 300;
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.39);
-}
-
-.btn-default i {
-  color: inherit;
-  margin-right: 8px;
+  .subtitle {
+    font-size: 1.2rem;
+  }
 }

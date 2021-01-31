@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url("../styles/base.css");
+        @import url("../styles/index.css");
+    </style>
     <title>Portfolio Template</title>
 </head>
 <body>
     <nav class="nav-bar">
         <div class="nav-container">
             <div class="nav-menu">
-                <a href="#" class="nav-link">portfolio</a>
+                <a href="#portfolio" class="nav-link">portfolio</a>
                 <a href="#" class="nav-link">about</a>
                 <a href="#contact" class="nav-link">contact</a>
             </div>
@@ -24,16 +27,16 @@
             <a class="btn-default">Get to know me</a>
         </div>
     </div>
-    <section>
+    <section id="portfolio">
         <div class="container center-txt">
             <h3 class="subtitle">Latest Projects</h3>
             <div class="projects-grid">
-                <img class="project-img" src="./src/projects-imgs/spachet.png" alt="cannot display">
-                <img class="project-img" src="./src/projects-imgs/minigolf.png" alt="cannot display">
-                <img class="project-img" src="./src/projects-imgs/go_game.png" alt="cannot display">
-                <img class="project-img" src="./src/projects-imgs/labora.png" alt="cannot display">
-                <img class="project-img" src="./src/projects-imgs/movie_recomendation.png" alt="cannot display">
-                <img class="project-img" src="./src/projects-imgs/database_app.png" alt="cannot display">
+                <img class="project-img" src="../resources/projects-imgs/spachet1.png" alt="cannot display">
+                <img class="project-img" src="../resources/projects-imgs/minigolf.png" alt="cannot display">
+                <img class="project-img" src="../resources/projects-imgs/go_game.png" alt="cannot display">
+                <img class="project-img" src="../resources/projects-imgs/labora.png" alt="cannot display">
+                <img class="project-img" src="../resources/projects-imgs/movie_recomendation.png" alt="cannot display">
+                <img class="project-img" src="../resources/projects-imgs/database_app.png" alt="cannot display">
             </div>
         </div>
     </section>
@@ -41,6 +44,8 @@
         <div class="container center-txt">
             <h1 class="headline">Contact me!</h1>
             <h3 class="subtitle">Let <span class="bold-it">me</span> grow in your company. So I can help <span class="bold-it">your company</span> grow.</h3>
+        </div>
+        <div class="contact-container center-txt">
             <div class="contact-grid">
                 <div>
                     <a class="fab fa-linkedin contact-icon" href="https://www.linkedin.com/in/krzysztof-malczak/"></a>
@@ -61,6 +66,6 @@
             <a class="btn-default" href="https://github.com/krzysztofMlczk"><i class="fab fa-github"></i> see github</a>
         </div>
     </section>
-    <script src="nav.js"></script>
+    <script src="../scripts/nav.js"></script>
 </body>
 </html>
