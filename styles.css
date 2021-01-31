@@ -8,12 +8,94 @@
   font-size: 14px;
   font-weight: 400;
   color: white;
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: #222;
 }
 
+/* navigation bar */
+.nav-bar {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.43);
+}
+
+.nav-container {
+  width: 990px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  overflow: hidden;
+}
+
+.nav-item {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.nav-link {
+  padding: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #00d6b4;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.burger {
+  padding: 20px;
+  display: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 991px) {
+  .nav-container {
+    width: 728px;
+  }
+
+  .nav-menu {
+    background-color: rgba(34, 34, 34, 0.43);
+    max-height: 0;
+    width: 100vw;
+    flex-direction: column;
+    position: absolute;
+    top: 54px;
+    left: 0;
+    padding: 0 20px;
+    transition: max-height 0.7s ease;
+  }
+
+  .open {
+    max-height: 200px;
+  }
+
+  .burger {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  .nav-container {
+    width: 100vw;
+  }
+}
+
+/* hero section --------------------------- */
 .hero-section {
   min-height: 540px;
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 2%, #222),
@@ -76,7 +158,7 @@ section {
   color: white;
 }
 
-/* --------------------------------- */
+/* --------------------------------- specific ones */
 
 .projects-grid {
   display: grid;
