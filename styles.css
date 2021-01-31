@@ -59,6 +59,7 @@ section {
 }
 
 .btn-default {
+  text-decoration: none;
   background-color: transparent;
   text-transform: uppercase;
   font-weight: 300;
@@ -98,7 +99,7 @@ section {
   margin-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .contact-icon {
