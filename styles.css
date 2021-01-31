@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+
+body {
+  background-color: #222;
+}
+
+.hero-section {
+  min-height: 540px;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 2%, #222),
+    url("./src/imgs/see_sunset.jpg");
+  background-position: 0 0, 100% 0;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.headline {
+  font-weight: 300;
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+}
+
+section {
+  padding: 50px 0;
+}
+
+.with-separation {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.bold-it {
+  font-style: italic;
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.container {
+  margin: 0 auto;
+  width: 50vw;
+}
+
+.center-txt {
+  text-align: center;
+}
+
+.btn-default {
+  background-color: transparent;
+  text-transform: uppercase;
+  font-weight: 300;
+  padding: 9px 25px;
+  border: 1px solid #00d6b4;
+  color: #00d6b4;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-default:hover {
+  border: 1px solid white;
+  color: white;
+}
+
+/* --------------------------------- */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+  margin-top: 50px;
+}
+
+.project-img {
+  transition: all 0.2s ease;
+  width: 100%;
+  cursor: pointer;
+}
+
+.project-img:hover {
+  transform: scale(1.1);
+}
+
+.contact-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 50px;
+}
+
+.contact-icon {
+  font-size: 2.2rem;
+  color: #00d6b4;
+}
+
+.icon-title {
+  margin: 21px 0 10px 0;
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+a.contact-icon {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+a.contact-icon:hover {
+  transform: scale(1.2);
+  color: white;
+}
+
+.icon-desc {
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.39);
+}
+
+.btn-default i {
+  color: inherit;
+  margin-right: 8px;
+}
