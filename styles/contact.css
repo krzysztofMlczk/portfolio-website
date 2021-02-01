@@ -39,11 +39,6 @@ a.contact-icon:hover {
   color: rgba(255, 255, 255, 0.39);
 }
 
-.btn-default i {
-  color: inherit;
-  margin-right: 8px;
-}
-
 @media screen and (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr;
