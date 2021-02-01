@@ -14,8 +14,8 @@
     <nav class="nav-bar">
         <div class="nav-container">
             <div class="nav-menu">
-                <a href="index.html" class="nav-link">portfolio</a>
-                <a href="about.html" class="nav-link">about</a>
+                <a href="/" class="nav-link">portfolio</a>
+                <a href="about" class="nav-link">about</a>
                 <a href="#contact" class="nav-link">contact</a>
             </div>
             <i class="fas fa-bars burger"></i>
@@ -28,14 +28,14 @@
     </div>
     <section>
         <div class="form-container">
-            <form action="">
+            <form action="/submit-contact" method="POST">
                 <label for="nameInput" class="input-label">name</label>
-                <input id="nameInput" type="text" class="contact-input" placeholder="Enter your name" required autofocus>
+                <input id="nameInput" name="userName" type="text" class="contact-input" placeholder="Enter your name" required autofocus>
                 <label for="emailInput" class="input-label">e-mail address</label>
-                <input id="emailInput" type="email" class="contact-input" placeholder="Enter your email address" required>
+                <input id="emailInput" name="userEmail" type="email" class="contact-input" placeholder="Enter your email address" required>
                 <label for="messageInput" class="input-label">message</label>
-                <textarea class="contact-input" name="msg" id="messgeInput" placeholder="Let me know what you need!" cols="30" rows="10"></textarea>
-                <button class="btn-default submit-btn">submit</button>
+                <textarea class="contact-input" name="userMsg" id="messgeInput" placeholder="Let me know what you need!" cols="30" rows="10"></textarea>
+                <button class="btn-default submit-btn" type="submit">submit</button>
             </form>
         </div>
     </section>
