@@ -135,6 +135,7 @@ section {
 .container {
   margin: 0 auto;
   width: 50vw;
+  max-width: 900px;
 }
 
 .center-txt {
@@ -192,5 +193,5 @@ footer h1 {
 
 footer i {
   font-size: 20px;
-  margin: 12px 8px 0 8px;
+  margin: 20px 10px 0 10px;
 }

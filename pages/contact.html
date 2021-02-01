@@ -11,11 +11,39 @@
     <title>Contact me</title>
 </head>
 <body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">portfolio</a>
+                <a href="about.html" class="nav-link">about</a>
+                <a href="#contact" class="nav-link">contact</a>
+            </div>
+            <i class="fas fa-bars burger"></i>
+        </div>
+    </nav>
+    <div class="hero-section contact-hero">
+        <div class="container center-txt">
+            <h1 class="headline">Reach out! Let's start something together.</h1>
+        </div>
+    </div>
+    <section>
+        <div class="form-container">
+            <form action="" class="contact-form">
+                <label for="nameInput" class="input-label">name</label>
+                <input id="nameInput" type="text" class="contact-input" placeholder="Enter your name" required autofocus>
+                <label for="emailInput" class="input-label">e-mail address</label>
+                <input id="emailInput" type="email" class="contact-input" placeholder="Enter your email address" required>
+                <label for="messageInput" class="input-label">message</label>
+                <textarea class="contact-input" name="msg" id="messgeInput" placeholder="Let me know what you need!" cols="30" rows="10"></textarea>
+            </form>
+        </div>
+    </section>
     <section id="contact" class="with-separation">
         <div class="container center-txt">
             <h1 class="headline">Contact me!</h1>
             <h3 class="subtitle">Let <span class="bold-it">me</span> grow in your company. So I can help <span class="bold-it">your company</span> grow.</h3>
         </div>
+
         <div class="contact-container center-txt">
             <div class="contact-grid">
                 <div>
@@ -37,5 +65,6 @@
             <a class="btn-default" href="https://github.com/krzysztofMlczk"><i class="fab fa-github"></i> see github</a>
         </div>
     </section>
+    <script src="../scripts/nav.js"></script>
 </body>
 </html>
