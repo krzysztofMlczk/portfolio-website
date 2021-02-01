@@ -154,6 +154,11 @@ section {
   cursor: pointer;
 }
 
+.btn-default i {
+  color: inherit;
+  margin-right: 8px;
+}
+
 .btn-default:hover {
   border: 1px solid white;
   color: white;
@@ -165,6 +170,27 @@ section {
   }
 
   .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
+}
+
+/* ----------------- FOOTER ------------------- */
+
+footer {
+  padding: 30px 0;
+}
+
+footer p {
+  font-size: 14px;
+  color: rgb(155, 155, 155);
+  margin-bottom: 5px;
+}
+
+footer h1 {
+  font-size: 16px;
+}
+
+footer i {
+  font-size: 20px;
+  margin: 12px 5px 0 5px;
 }
