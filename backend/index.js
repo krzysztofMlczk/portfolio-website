@@ -24,12 +24,19 @@ app.get("/contact", (req, res) => {
 });
 
 app.get("/projects/spachet", (req, res) => {
+  const folderPath = "../../resources/projects-imgs/spachet/";
+  let galleryImages = [];
+
+  for (let i = 1; i <= 11; i++) {
+    galleryImages.push(folderPath + "gallery" + i + ".png");
+  }
+
   res.render(path.resolve("../frontend/pages/views/project_page"), {
     pageTitle: "Spachet",
-    heroImg: "../../resources/projects-imgs/spachet/parallaxa.png",
+    heroImg: folderPath + "parallaxa.png",
     projectIdea: "web app design & implementation",
     headline: "Spachet Webservice",
-    projectImg: "../../resources/projects-imgs/spachet/logo-title.png",
+    projectImg: folderPath + "logo-title.png",
     description:
       "Project of a fully functional webservice for the players community of game Spachet. Home page of this website advertises the game itself thanks to the beautiful parallax hero section, with graphis, which I've created using Adobe Illustrator. This web application allows you to Sign Up as a new player to the Spachet Game, then you can Log In to download the game, edit your profile or look through the scoreboard where for each map provided (maps can be created by players and shared through the website) you can see players with the best scores. Of course webservice is integrated with the game (they share the same database of players, scores and maps). ",
     responsibilities:
@@ -41,7 +48,7 @@ app.get("/projects/spachet", (req, res) => {
       "Styled Components (CSS Library for React)",
       "JWT (for authentication)",
     ],
-    galleryImgs: ["../../resources/projects/imgs/spachet/"],
+    galleryImgs: galleryImages,
   });
 });
 
