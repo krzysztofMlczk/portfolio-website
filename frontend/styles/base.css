@@ -162,6 +162,7 @@ section {
 }
 
 .btn-default:hover {
+  text-decoration: none;
   border: 1px solid white;
   color: white;
 }

@@ -36,6 +36,8 @@ app.get("/projects/spachet", (req, res) => {
     heroImg: folderPath + "parallaxa.png",
     minHeight: "384px",
     bgPosition: "center",
+    github: "https://gitlab.com/pythongbros/trebuchetgame",
+    website: "https://spachet.netlify.app/",
     projectIdea: "web app design & implementation",
     ideaColor: "#00d6b4",
     headline: "Spachet Webservice",
@@ -63,7 +65,7 @@ app.get("/projects/minigolf", (req, res) => {
 
   let galleryImages = [];
 
-  for (let i = 1; i <= 2; i++) {
+  for (let i = 1; i <= 5; i++) {
     galleryImages.push(folderPath + "gallery" + i + ".png");
   }
 
@@ -72,6 +74,8 @@ app.get("/projects/minigolf", (req, res) => {
     heroImg: folderPath + "background.png",
     minHeight: "450px",
     bgPosition: "50% 95%",
+    github: "https://gitlab.com/pythongbros/minigolf",
+    website: null,
     projectIdea: "UI design & implementation",
     ideaColor: "#222",
     headline: "Minigolf Game",
