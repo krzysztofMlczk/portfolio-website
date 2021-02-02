@@ -1,7 +1,6 @@
 .idea {
   text-transform: uppercase;
   margin: 10px 0;
-  color: #00d6b4;
   font-size: 14px;
   letter-spacing: 1px;
 }
@@ -68,13 +67,22 @@
   font-size: 18px;
 }
 
-/* ------------------ PHOTO GALLERY -------------------- */
-
-.photo-gallery {
-  /* color: #313437; */
-  /* background-color: #fff; */
+.low-nav {
+  margin: 0 auto;
+  width: 80vw;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.home-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* ------------------ PHOTO GALLERY -------------------- */
 .photo-gallery p {
   color: #7d8285;
 }
@@ -110,6 +118,11 @@
 
 .photo-gallery .item {
   padding-bottom: 30px;
+  transition: all 0.2s ease;
+}
+
+.photo-gallery .item:hover {
+  transform: scale(1.1);
 }
 
 .gallery-container {
