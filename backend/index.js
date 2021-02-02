@@ -6,6 +6,8 @@ var path = require("path");
 const app = express();
 const port = 3000;
 
+app.set("view engine", "ejs");
+
 app.use(express.static(path.resolve("../frontend")));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -29,6 +31,6 @@ app.post("/submit-contact", (req, res) => {
   console.log(name, email, msg);
 });
 
-app.listen(port, function () {
+app.listen(port, () => {
   console.log("Server is running on port " + port);
 });
