@@ -12,8 +12,21 @@
   height: 100%;
   cursor: pointer;
   object-fit: cover;
+  border-radius: 3px;
 }
 
 .project-img:hover {
   transform: scale(1.1);
+}
+
+@media screen and (max-width: 959px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 }
