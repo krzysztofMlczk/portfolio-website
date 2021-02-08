@@ -173,8 +173,40 @@ app.get("/projects/compiler", (req, res) => {
 });
 
 app.get("/projects/car-dealership-system", (req, res) => {
+  const folderPath = "../../resources/projects-imgs/car-dealership-system/";
+
+  let galleryImages = [];
+
+  for (let i = 1; i <= 6; i++) {
+    galleryImages.push(folderPath + "gallery" + i + ".png");
+  }
+
   res.render(path.resolve("../frontend/pages/views/project_page"), {
-    pageTitle: "Car Dealership system",
+    pageTitle: "Car Dealership System",
+    heroImg: folderPath + "background.jpg",
+    minHeight: "450px",
+    bgPosition: "center",
+    github: "https://github.com/krzysztofMlczk/car_dealership_system",
+    website: null,
+    projectIdea: "App & Database implementation",
+    ideaColor: "#00d6b4",
+    headline: "Car Dealership System",
+    projectImg: folderPath + "logo.jpg",
+    description:
+      "This project is an implementation of a system dedicated for managing car sales. It is a desktop application written in Java, which is connected to the SQL database. You can login into the system and manipulate and/or look through the car offer depending on what kind of user you are. When you are administrator you can add and delete offers/available producers/brands and create/delete users. When you are a worker you can look through the offer and check for available cars or make an order according to the specification provided by clients, thanks to big amount of filters and criterias.",
+    responsibilities:
+      "I implemented triggers, procedures and transactions for the SQL database. I created application interface and implemented the logic. At the end I connected desktop app with the database with the use of Java Database Connection.",
+    technologies: [
+      "Java",
+      "Javafx (UI)",
+      "JDBC",
+      "Maven",
+      "Object Oriented Programming",
+      "MySQL Database",
+    ],
+    galleryImgs: galleryImages,
+    next: "spachet",
+    previous: "compiler",
   });
 });
 
