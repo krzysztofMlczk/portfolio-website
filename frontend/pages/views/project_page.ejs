@@ -24,6 +24,14 @@
             color: <%= ideaColor %>;
         }
 
+        .medium-nav-grid {
+            grid-template-columns: <%= website ? "1fr 1fr" : "1fr" %>
+        }
+
+        .photo-gallery {
+            display: <%= galleryImgs ? "block" : "none" %>
+        }
+
     </style>
     <title><%= pageTitle %></title>
 </head>
@@ -36,7 +44,9 @@
             <div class="nav-menu">
                 <a href="#about" class="nav-link">About Project</a>
                 <a href="#technologies" class="nav-link">Technologies</a>
-                <a href="#gallery" class="nav-link">Gallery</a>
+                <% if (galleryImgs) { %>
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                <% } %>
             </div>
             <i class="fas fa-bars burger"></i>
         </div>
@@ -66,13 +76,19 @@
             </ul>
         </p>
     </div>
-    <div class="medium-nav">
-        <% if (website) { %>
-            <a class="btn-default" href=<%= website %>>see website</a>
-        <% } %>
-        <% if (github) { %>
-            <a class="btn-default" href=<%= github %>><i class="fab fa-github"></i> see github</a>
-        <% } %>
+    <div class="medium-nav-container">
+        <div class="medium-nav-grid">
+            <% if (website) { %>
+                <div>
+                    <a class="btn-default" href=<%= website %>>see website</a>
+                </div>
+            <% } %>
+            <% if (github) { %>
+                <div>
+                    <a class="btn-default" href=<%= github %>><i class="fab fa-github"></i> see github</a>
+                </div>
+            <% } %>
+        </div>
     </div>
     <div id="gallery" class="photo-gallery">
         <div class="container gallery-container">
@@ -80,10 +96,11 @@
                 <h2 class="text-center">Gallery:</h2>
             </div>
             <div class="row photos">
-                <% galleryImgs.forEach((img) => { %>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href=<%= img %> data-lightbox="photos"><img class="img-fluid" src=<%= img %>></a></div>
-                <% }); %> 
-                
+                <% if (galleryImgs) { %>
+                    <% galleryImgs.forEach((img) => { %>
+                        <div class="col-sm-6 col-md-4 col-lg-3 item"><a href=<%= img %> data-lightbox="photos"><img class="img-fluid" src=<%= img %>></a></div>
+                    <% }); %>
+                <% } %>
             </div>
         </div>
     </div>

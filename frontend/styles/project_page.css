@@ -82,6 +82,27 @@
   left: 0;
 }
 
+/* ------------------ MEDIUM NAV -------------------- */
+
+.medium-nav-container {
+  text-align: center;
+  max-width: 500px;
+  width: 80vw;
+  margin: 60px auto 30px auto;
+}
+
+.medium-nav-grid {
+  display: grid;
+  grid-gap: 30px;
+}
+
+@media screen and (max-width: 620px) {
+  .medium-nav-grid {
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
+  }
+}
+
 /* ------------------ PHOTO GALLERY -------------------- */
 .photo-gallery p {
   color: #7d8285;

@@ -43,7 +43,7 @@ app.get("/projects/spachet", (req, res) => {
     headline: "Spachet Webservice",
     projectImg: folderPath + "logo-title.png",
     description:
-      "Project of a fully functional webservice for the players community of game Spachet. Home page of this website advertises the game itself thanks to the beautiful parallax hero section, with graphis, which I've created using Adobe Illustrator. This web application allows you to Sign Up as a new player to the Spachet Game, then you can Log In to download the game, edit your profile or look through the scoreboard where for each map provided (maps can be created by players and shared through the website) you can see players with the best scores. Of course webservice is integrated with the game (they share the same database of players, scores and maps). ",
+      "Project of a fully functional webservice for the players community of game Spachet. Home page of this website advertises the game itself thanks to the beautiful parallax hero section, with graphics, which I've created using Adobe Illustrator. This web application allows you to Sign Up as a new player to the Spachet Game, then you can Log In to download the game, edit your profile or look through the scoreboard where for each map provided (maps can be created by players and shared through the website) you can see players with the best scores. Of course webservice is integrated with the game (they share the same database of players, scores and maps). ",
     responsibilities:
       "I have designed whole UI for the webservice with emphasis on making the User Experience as intuitive as it can be. Then I designed and executed graphics and logo used on the website with Adobe Illustrator. Next step was to setup backend side of the project for which I've used node.js and JWT for authentication. Then I implemented Frontend side of the project using React.js with Styled Components Library. At the end I integrated Frontend with Backend.",
     technologies: [
@@ -98,8 +98,38 @@ app.get("/projects/minigolf", (req, res) => {
 });
 
 app.get("/projects/go-game", (req, res) => {
+  const folderPath = "../../resources/projects-imgs/go-game/";
+
+  let galleryImages = [];
+
+  for (let i = 1; i <= 9; i++) {
+    galleryImages.push(folderPath + "gallery" + i + ".png");
+  }
+
   res.render(path.resolve("../frontend/pages/views/project_page"), {
-    pageTitle: "Game of Go",
+    pageTitle: "Game of GO",
+    heroImg: folderPath + "background.png",
+    minHeight: "450px",
+    bgPosition: "center",
+    github: "https://github.com/krzysztofMlczk/go_game-java-",
+    website: null,
+    projectIdea: "Game logic & Interface implementation",
+    ideaColor: "#00d6b4",
+    headline: "Game of GO",
+    projectImg: folderPath + "logoPNG.png",
+    description:
+      "This project is an implementation of GO game, which is an abstract strategy board game invented in China more than 2,500 years ago. The aim is to surround more territory than the opponent. This project was implemented as a Client-Server application in Java programming language with the use of Maven automation tool. It allows you to play local multiplayer against your friends or singleplayer where you have to face bot implemented on the logic side of the application. Both Server and Client applications use threads, to allow you to simultaneously interact with interface and send information about your moves to the server.",
+    responsibilities:
+      "I designed User Interface as well as all the graphics you can see in the game. I used Javafx for the UI implementation. I formulated and developed a main logic loop for Client-Server communication. I also took part in developing logic aspects used for execution of the game rules including KO moves and detecting which stones lost their breaths (recursive algorithm of counting breaths). At the end I had to connect Client application with the Server keeping in mind that both of them work on threads.",
+    technologies: [
+      "Java",
+      "Javafx (Scene Builder)",
+      "Maven",
+      "Object Oriented Programming",
+    ],
+    galleryImgs: galleryImages,
+    next: "labora",
+    previous: "minigolf",
   });
 });
 
@@ -109,9 +139,36 @@ app.get("/projects/labora", (req, res) => {
   });
 });
 
-app.get("/projects/movie-recomendation", (req, res) => {
+app.get("/projects/compiler", (req, res) => {
+  const folderPath = "../../resources/projects-imgs/compiler/";
+
+  let galleryImages = null;
+
   res.render(path.resolve("../frontend/pages/views/project_page"), {
-    pageTitle: "Movie recomendation",
+    pageTitle: "C++ Compiler",
+    heroImg: folderPath + "background.jpeg",
+    minHeight: "450px",
+    bgPosition: "center",
+    github: "https://github.com/krzysztofMlczk/compiler",
+    website: null,
+    projectIdea: "Compiler Implementation",
+    ideaColor: "#00d6b4",
+    headline: "C++ Compiler",
+    projectImg: folderPath + "logo.jpg",
+    description:
+      "This project is an implementation of Compiler for small imperative language called Imperator. It is written in C++ language with the use of Fast Lexical Analyzer (FLEX) and generator of LR parsers called Bison. FLEX code generates scanner (so called lexical analyzer - implemented as a finite state machine), which groups characters given as input into lexical units or tokens and outputs a stream of tokens. Regular expressions are used to define the tokens recognized by the scanner. Bison generates parser, which groups tokens into syntactical units and outputs a parse tree representation of the Imperator program. Context-free grammar is used to define the program structure recognized by a parser. For each syntactical unit recognized by Bison there is an action implemented in C++, which uses back of the compiler to generate assembler code.",
+    responsibilities:
+      "I used FLEX and regular expressions to write code responsible for generating lexical analyzer. Then I implemented module using Bison which generates parser based on Context-free grammar describing Imperator language. At the end I used C++ language to implement back of the compiler as a system of related classes and interfaces, which leads to assembler code generation.",
+    technologies: [
+      "C++",
+      "Bison (Yacc)",
+      "FLEX (Fast Lexical Analyzer)",
+      "Object Oriented Programming",
+      "GNU Make",
+    ],
+    galleryImgs: galleryImages,
+    next: "car-dealership-system",
+    previous: "labora",
   });
 });
 
