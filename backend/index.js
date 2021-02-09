@@ -5,12 +5,14 @@ var path = require("path");
 const dotenv = require("dotenv");
 dotenv.config();
 
-mailchimp.setConfig({
-  apiKey: process.env.API_KEY,
-  server: process.env.SERVER,
-});
+const API_KEY = process.env.API_KEY;
+const SERVER = process.env.SERVER;
+const LIST_ID = process.env.LIST_ID;
 
-const listId = process.env.LIST_ID;
+mailchimp.setConfig({
+  apiKey: API_KEY,
+  server: SERVER,
+});
 
 const app = express();
 const port = 3000;
@@ -220,7 +222,7 @@ app.post("/submit-contact", (req, res) => {
 
   async function run() {
     try {
-      const response = await mailchimp.lists.addListMember(listId, {
+      const response = await mailchimp.lists.addListMember(LIST_ID, {
         email_address: email,
         status: "subscribed",
         merge_fields: {
