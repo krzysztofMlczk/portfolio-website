@@ -1,7 +1,16 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const request = require("request");
+const mailchimp = require("@mailchimp/mailchimp_marketing");
 var path = require("path");
+const dotenv = require("dotenv");
+dotenv.config();
+
+mailchimp.setConfig({
+  apiKey: process.env.API_KEY,
+  server: process.env.SERVER,
+});
+
+const listId = process.env.LIST_ID;
 
 const app = express();
 const port = 3000;
@@ -43,9 +52,9 @@ app.get("/projects/spachet", (req, res) => {
     headline: "Spachet Webservice",
     projectImg: folderPath + "logo-title.png",
     description:
-      "Project of a fully functional webservice for the players community of game Spachet. Home page of this website advertises the game itself thanks to the beautiful parallax hero section, with graphics, which I've created using Adobe Illustrator. This web application allows you to Sign Up as a new player to the Spachet Game, then you can Log In to download the game, edit your profile or look through the scoreboard where for each map provided (maps can be created by players and shared through the website) you can see players with the best scores. Of course webservice is integrated with the game (they share the same database of players, scores and maps). ",
+      "Project of a fully functional webservice for the players community of game Spachet. Home page of this website advertises the game itself thanks to the beautiful parallax hero section, with graphics, which I've created using Adobe Illustrator. This web application allows you to Sign Up as a new player to the Spachet Game, then you can log in to download the game, edit your profile or look through the scoreboard where for each map provided (maps can be created by players and shared through the website) you can see players with the best scores. Of course webservice is integrated with the game (they share the same database of players, scores and maps). ",
     responsibilities:
-      "I have designed whole UI for the webservice with emphasis on making the User Experience as intuitive as it can be. Then I designed and executed graphics and logo used on the website with Adobe Illustrator. Next step was to setup backend side of the project for which I've used node.js and JWT for authentication. Then I implemented Frontend side of the project using React.js with Styled Components Library. At the end I integrated Frontend with Backend.",
+      "I have designed the whole UI for the webservice with emphasis on making the User Experience as intuitive as it can be. Then I designed and executed graphics and logo used on the website with Adobe Illustrator. Next step was to setup backend side of the project for which I've used node.js and JWT for authentication. Then I implemented Frontend side of the project using React.js with Styled Components Library. At the end I integrated Frontend with Backend.",
     technologies: [
       "React.js (Frontend)",
       "Node.js + Express (Backend)",
@@ -81,16 +90,10 @@ app.get("/projects/minigolf", (req, res) => {
     headline: "Minigolf Game",
     projectImg: folderPath + "minigolf.png",
     description:
-      "Project of a fully functional webservice for the players community of game Spachet. Home page of this website advertises the game itself thanks to the beautiful parallax hero section, with graphis, which I've created using Adobe Illustrator. This web application allows you to Sign Up as a new player to the Spachet Game, then you can Log In to download the game, edit your profile or look through the scoreboard where for each map provided (maps can be created by players and shared through the website) you can see players with the best scores. Of course webservice is integrated with the game (they share the same database of players, scores and maps). ",
+      'MiniGolf is a classic 2d game implemented in Python with the use of pygame library and pymunk physics engine. Pygame is responsible for main game loop, rendering graphics and listening for events. Pymunk provides physics simulation of the game which goes in the "background". Thanks to Pymunk we can also generate collision masks for certain objects based on the image. You can play both single and local muliplayer for at most five players.',
     responsibilities:
-      "I have designed whole UI for the webservice with emphasis on making the User Experience as intuitive as it can be. Then I designed and executed graphics and logo used on the website with Adobe Illustrator. Next step was to setup backend side of the project for which I've used node.js and JWT for authentication. Then I implemented Frontend side of the project using React.js with Styled Components Library. At the end I integrated Frontend with Backend.",
-    technologies: [
-      "React.js (Frontend)",
-      "Node.js + Express (Backend)",
-      "MongoDB (Data Base)",
-      "Styled Components (CSS Library for React)",
-      "JWT (for authentication)",
-    ],
+      "I designed every component appearing in the User Interface using Adobe Illustrator. Then I implemented classes for menu scenes and UI components making use of created earlier graphics. At the end I integrated whole menu interface with scenes provided by other team members.",
+    technologies: ["Python 3", "Pygame", "Pymunk", "Adobe Illustrator"],
     galleryImgs: galleryImages,
     next: "go-game",
     previous: "spachet",
@@ -195,7 +198,7 @@ app.get("/projects/car-dealership-system", (req, res) => {
     description:
       "This project is an implementation of a system dedicated for managing car sales. It is a desktop application written in Java, which is connected to the SQL database. You can login into the system and manipulate and/or look through the car offer depending on what kind of user you are. When you are administrator you can add and delete offers/available producers/brands and create/delete users. When you are a worker you can look through the offer and check for available cars or make an order according to the specification provided by clients, thanks to big amount of filters and criterias.",
     responsibilities:
-      "I implemented triggers, procedures and transactions for the SQL database. I created application interface and implemented the logic. At the end I connected desktop app with the database with the use of Java Database Connection.",
+      "I implemented triggers, procedures and transactions for the SQL database. I created application interface and implemented the logic. At the end I connected the desktop app with the database using Java Database Connection.",
     technologies: [
       "Java",
       "Javafx (UI)",
@@ -215,7 +218,23 @@ app.post("/submit-contact", (req, res) => {
   let email = req.body.userEmail;
   let msg = req.body.userMsg;
 
-  console.log(name, email, msg);
+  async function run() {
+    try {
+      const response = await mailchimp.lists.addListMember(listId, {
+        email_address: email,
+        status: "subscribed",
+        merge_fields: {
+          FNAME: name,
+          LNAME: msg,
+        },
+      });
+    } catch {
+      console.log("Unable to connect to the API");
+    }
+  }
+
+  run();
+  res.redirect("/contact");
 });
 
 app.listen(port, () => {
