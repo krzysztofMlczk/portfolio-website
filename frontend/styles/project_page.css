@@ -91,18 +91,6 @@
   margin: 60px auto 30px auto;
 }
 
-.medium-nav-grid {
-  display: grid;
-  grid-gap: 30px;
-}
-
-@media screen and (max-width: 620px) {
-  .medium-nav-grid {
-    grid-template-columns: 1fr;
-    grid-gap: 40px;
-  }
-}
-
 /* ------------------ PHOTO GALLERY -------------------- */
 .photo-gallery p {
   color: #7d8285;

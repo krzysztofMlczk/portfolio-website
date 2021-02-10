@@ -25,11 +25,20 @@
         }
 
         .medium-nav-grid {
-            grid-template-columns: <%= website ? "1fr 1fr" : "1fr" %>
+            display: grid;
+            grid-template-columns: <%= website !== null ? "1fr 1fr" : "1fr" %>;
+            grid-gap: 30px;
+        }
+
+        @media screen and (max-width: 620px) {
+            .medium-nav-grid {
+                grid-template-columns: 1fr;
+                grid-gap: 40px;
+            }
         }
 
         .photo-gallery {
-            display: <%= galleryImgs ? "block" : "none" %>
+            display: <%= galleryImgs ? "block" : "none" %>;
         }
 
     </style>
