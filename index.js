@@ -19,30 +19,30 @@ const port = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
 
-app.use(express.static(path.resolve("../frontend")));
+app.use(express.static(path.resolve("./frontend")));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve("../frontend/pages/index.html"));
+  res.sendFile(path.resolve("./frontend/pages/index.html"));
 });
 
 app.get("/about", (req, res) => {
-  res.sendFile(path.resolve("../frontend/pages/about.html"));
+  res.sendFile(path.resolve("./frontend/pages/about.html"));
 });
 
 app.get("/contact", (req, res) => {
-  res.sendFile(path.resolve("../frontend/pages/contact.html"));
+  res.sendFile(path.resolve("./frontend/pages/contact.html"));
 });
 
 app.get("/projects/spachet", (req, res) => {
-  const folderPath = "../../resources/projects-imgs/spachet/";
+  const folderPath = "./../resources/projects-imgs/spachet/";
   let galleryImages = [];
 
   for (let i = 1; i <= 11; i++) {
     galleryImages.push(folderPath + "gallery" + i + ".png");
   }
 
-  res.render(path.resolve("../frontend/pages/views/project_page"), {
+  res.render(path.resolve("./frontend/pages/views/project_page"), {
     pageTitle: "Spachet",
     heroImg: folderPath + "parallaxa.png",
     minHeight: "384px",
@@ -72,7 +72,7 @@ app.get("/projects/spachet", (req, res) => {
 });
 
 app.get("/projects/minigolf", (req, res) => {
-  const folderPath = "../../resources/projects-imgs/minigolf/";
+  const folderPath = "./../resources/projects-imgs/minigolf/";
 
   let galleryImages = [];
 
@@ -80,7 +80,7 @@ app.get("/projects/minigolf", (req, res) => {
     galleryImages.push(folderPath + "gallery" + i + ".png");
   }
 
-  res.render(path.resolve("../frontend/pages/views/project_page"), {
+  res.render(path.resolve("./frontend/pages/views/project_page"), {
     pageTitle: "Mini Golf",
     heroImg: folderPath + "background.png",
     minHeight: "450px",
@@ -103,7 +103,7 @@ app.get("/projects/minigolf", (req, res) => {
 });
 
 app.get("/projects/go-game", (req, res) => {
-  const folderPath = "../../resources/projects-imgs/go-game/";
+  const folderPath = "./../resources/projects-imgs/go-game/";
 
   let galleryImages = [];
 
@@ -111,7 +111,7 @@ app.get("/projects/go-game", (req, res) => {
     galleryImages.push(folderPath + "gallery" + i + ".png");
   }
 
-  res.render(path.resolve("../frontend/pages/views/project_page"), {
+  res.render(path.resolve("./frontend/pages/views/project_page"), {
     pageTitle: "Game of GO",
     heroImg: folderPath + "background.png",
     minHeight: "450px",
@@ -139,17 +139,17 @@ app.get("/projects/go-game", (req, res) => {
 });
 
 app.get("/projects/labora", (req, res) => {
-  res.render(path.resolve("../frontend/pages/views/project_page"), {
+  res.render(path.resolve("./frontend/pages/views/project_page"), {
     pageTitle: "Labora",
   });
 });
 
 app.get("/projects/compiler", (req, res) => {
-  const folderPath = "../../resources/projects-imgs/compiler/";
+  const folderPath = "./../resources/projects-imgs/compiler/";
 
   let galleryImages = null;
 
-  res.render(path.resolve("../frontend/pages/views/project_page"), {
+  res.render(path.resolve("./frontend/pages/views/project_page"), {
     pageTitle: "C++ Compiler",
     heroImg: folderPath + "background.jpeg",
     minHeight: "450px",
@@ -178,7 +178,7 @@ app.get("/projects/compiler", (req, res) => {
 });
 
 app.get("/projects/car-dealership-system", (req, res) => {
-  const folderPath = "../../resources/projects-imgs/car-dealership-system/";
+  const folderPath = "./../resources/projects-imgs/car-dealership-system/";
 
   let galleryImages = [];
 
@@ -186,7 +186,7 @@ app.get("/projects/car-dealership-system", (req, res) => {
     galleryImages.push(folderPath + "gallery" + i + ".png");
   }
 
-  res.render(path.resolve("../frontend/pages/views/project_page"), {
+  res.render(path.resolve("./frontend/pages/views/project_page"), {
     pageTitle: "Car Dealership System",
     heroImg: folderPath + "background.jpg",
     minHeight: "450px",
