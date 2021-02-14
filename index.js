@@ -133,7 +133,7 @@ app.get("/projects/go-game", (req, res) => {
       "Object Oriented Programming",
     ],
     galleryImgs: galleryImages,
-    next: "labora",
+    next: "compiler",
     previous: "minigolf",
   });
 });
@@ -173,7 +173,7 @@ app.get("/projects/compiler", (req, res) => {
     ],
     galleryImgs: galleryImages,
     next: "car-dealership-system",
-    previous: "labora",
+    previous: "go-game",
   });
 });
 
