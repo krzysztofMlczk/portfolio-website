@@ -76,12 +76,6 @@
   align-items: center;
 }
 
-.home-link {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
 /* ------------------ MEDIUM NAV -------------------- */
 
 .medium-nav-container {

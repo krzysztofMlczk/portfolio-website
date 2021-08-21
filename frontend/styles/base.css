@@ -97,6 +97,12 @@ body {
   }
 }
 
+.home-link {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 /* --------------- HERO SECTION --------------- */
 .hero-section {
   min-height: 540px;

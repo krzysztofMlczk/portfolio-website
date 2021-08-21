@@ -26,6 +26,10 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("./frontend/pages/index.html"));
 });
 
+app.get("/portfolio", (req, res) => {
+    res.sendFile(path.resolve("./frontend/pages/portfolio.html"));
+});
+
 app.get("/about", (req, res) => {
   res.sendFile(path.resolve("./frontend/pages/about.html"));
 });
