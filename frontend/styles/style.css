@@ -12,6 +12,11 @@
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-y: hidden; /* hide during page load */
+  background-color: var(--bg-dark);
+}
+
 section.light {
   background-color: var(--bg-light);
 }
