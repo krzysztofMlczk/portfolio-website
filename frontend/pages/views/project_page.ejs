@@ -27,7 +27,7 @@
 
         .medium-nav-grid {
             display: grid;
-            grid-template-columns: <%= website !== null ? "1fr 1fr" : "1fr" %>;
+            grid-template-columns: <%= additionalLink !== null ? "1fr 1fr" : "1fr" %>;
             grid-gap: 30px;
         }
 
@@ -78,19 +78,17 @@
     </div>
     <div id="technologies" class="project-desc-container">
         <h3 class="desc-label">Technologies & tools: </h3>
-        <p class="desc">
             <ul>
                 <% technologies.forEach((technology) => { %>
                     <li class="tech-item"><%= technology %></li>
                <% }); %>
             </ul>
-        </p>
     </div>
     <div class="medium-nav-container">
         <div class="medium-nav-grid">
-            <% if (website) { %>
+            <% if (additionalLink) { %>
                 <div>
-                    <a class="btn-default" href=<%= website %>>see website</a>
+                    <a class="btn-default" target="_blank" href=<%= additionalLink.link %>><%= additionalLink.label %></a>
                 </div>
             <% } %>
             <% if (github) { %>

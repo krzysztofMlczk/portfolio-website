@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/portfolio", (req, res) => {
-    res.sendFile(path.resolve("./frontend/pages/portfolio.html"));
+  res.sendFile(path.resolve("./frontend/pages/portfolio.html"));
 });
 
 app.get("/about", (req, res) => {
@@ -36,6 +36,79 @@ app.get("/about", (req, res) => {
 
 app.get("/contact", (req, res) => {
   res.sendFile(path.resolve("./frontend/pages/contact.html"));
+});
+
+app.get("/thesis", (req, res) => {
+  res.sendFile(path.resolve("./frontend/pages/thesis.pdf"));
+});
+
+app.get("/projects/smart-mirror", (req, res) => {
+  const folderPath = "./../resources/projects-imgs/smart-mirror/";
+  let galleryImages = [];
+
+  for (let i = 1; i <= 18; i++) {
+    galleryImages.push(folderPath + "gallery" + i + ".png");
+  }
+  // TODO: Add videos/gifs of the system!
+  // TODO: reconsider the hero image!
+  // TODO: Truncate the images to the same heights?
+  res.render(path.resolve("./frontend/pages/views/project_page"), {
+    pageTitle: "Smart Mirror",
+    heroImg: folderPath + "hero.png",
+    minHeight: "450px",
+    bgPosition: "center",
+    github: "https://github.com/krzysztofMlczk/smart-mirror",
+    additionalLink: {
+      label: "full documentation",
+      link: "/thesis",
+    },
+    projectIdea: "system architecture, design & implementation",
+    ideaColor: "#00d6b4",
+    headline: "Smart Mirror",
+    projectImg: folderPath + "logo.png",
+    description: `
+Smart Mirror is a system designed and implemented in order to contribute to the expansion of smart home devices family, by providing a software that can be easily incorporated on the Raspberry Pi platform, which in conjunction with couple of additional components becomes a powerful intelligent mirror, providing such features as:
+
+    - Multi-user access (via Google Account)
+    - Face recognition login
+    - Screen orientation selection
+    - Widgets layout modification (mobile like - drag & drop)
+    - Web browser & Netflix access
+
+The following widgets are accessible in the current version (1.0.0) of the system:
+
+    - G-mail inbox
+    - Google Calendar
+    - Multifunctional Clock (hour, date, timezone, stopwatch)
+    - Radio player (allows to filter stations by music genre)
+    - Weather forecast
+    - News feed
+
+It comes as software integrated with Google services, as many other already existing devices consume the same resources (Google APIs), which allows keeping all of them in sync, e.g. altering e-mails in G-mail mobile app or adding a new calendar event via voice command given to Google Home smart speaker will be reflected in the user interface of the Smart Mirror widgets, as shared data storage is used for these purposes.
+
+The  problem  that  the  Smart  Mirror  project  is  trying  to  solve  is  the  possession  of multiple  devices that fulfill single responsibilities (e.g.  home weather station, digital clock, Bluetooth speaker, etc.), by enclosing all of them in the form of user-friendly widgets inside of a single device.
+
+In order to use this software to empower a smart home device, the target appliance (the mirror) has to be assembled first. Any user with minimal technical knowledge can do so, as it is not more challenging than connecting a monitor to a computer. However, several components have to be gathered (see Gallery - Target Device Composition).
+
+The installation process of the Smart Mirror system on the target device is very simple. It comes down to inserting a properly prepared microSD card in the Raspberry Pi card slot and running the device.
+
+The inspiration for this system was Magic Mirror project and it was implemented as a part of my Bachelor Thesis. However, work on the project continues and it will be extended with new functionalities in upcoming releases.
+    `,
+    responsibilities:
+      "I have designed both, the architecture of the system and its User Interface. Then I implemented the central pillar of the Smart Mirror project, namely an Electron-based desktop application which acts as a manager of the whole system. At the end I integrated all of its components including a database and an external C++ module responsible for face recognition feature.",
+    technologies: [
+      "Electron (Node.js + Chromium based platform)",
+      "React.js (User Interface)",
+      "MaterialUI (UI library for React)",
+      "Figma (UI mockups)",
+      "NeDB (JavaScript in memory data base)",
+      "OAuth 2.0 (Google Authorization & Services)",
+      "External APIs (Google APIs, Radio Browser, OpenWrather, NewAPI)",
+    ],
+    galleryImgs: galleryImages,
+    next: "spachet",
+    previous: "car-dealership-system",
+  });
 });
 
 app.get("/projects/spachet", (req, res) => {
@@ -52,7 +125,10 @@ app.get("/projects/spachet", (req, res) => {
     minHeight: "384px",
     bgPosition: "center",
     github: "https://gitlab.com/pythongbros/trebuchetgame",
-    website: "https://spachet.netlify.app/",
+    additionalLink: {
+      label: "see website",
+      link: "https://spachet.netlify.app/",
+    },
     projectIdea: "web app design & implementation",
     ideaColor: "#00d6b4",
     headline: "Spachet Webservice",
@@ -71,7 +147,7 @@ app.get("/projects/spachet", (req, res) => {
     ],
     galleryImgs: galleryImages,
     next: "minigolf",
-    previous: "car-dealership-system",
+    previous: "smart-mirror",
   });
 });
 
@@ -90,7 +166,7 @@ app.get("/projects/minigolf", (req, res) => {
     minHeight: "450px",
     bgPosition: "50% 95%",
     github: "https://gitlab.com/pythongbros/minigolf",
-    website: null,
+    additionalLink: null,
     projectIdea: "UI design & implementation",
     ideaColor: "#222",
     headline: "Minigolf Game",
@@ -121,7 +197,7 @@ app.get("/projects/go-game", (req, res) => {
     minHeight: "450px",
     bgPosition: "center",
     github: "https://github.com/krzysztofMlczk/go_game-java-",
-    website: null,
+    additionalLink: null,
     projectIdea: "Game logic & Interface implementation",
     ideaColor: "#00d6b4",
     headline: "Game of GO",
@@ -159,7 +235,7 @@ app.get("/projects/compiler", (req, res) => {
     minHeight: "450px",
     bgPosition: "center",
     github: "https://github.com/krzysztofMlczk/compiler",
-    website: null,
+    additionalLink: null,
     projectIdea: "Compiler Implementation",
     ideaColor: "#00d6b4",
     headline: "C++ Compiler",
@@ -196,7 +272,7 @@ app.get("/projects/car-dealership-system", (req, res) => {
     minHeight: "450px",
     bgPosition: "center",
     github: "https://github.com/krzysztofMlczk/car_dealership_system",
-    website: null,
+    additionalLink: null,
     projectIdea: "App & Database implementation",
     ideaColor: "#00d6b4",
     headline: "Car Dealership System",
@@ -214,7 +290,7 @@ app.get("/projects/car-dealership-system", (req, res) => {
       "MySQL Database",
     ],
     galleryImgs: galleryImages,
-    next: "spachet",
+    next: "smart-mirror",
     previous: "compiler",
   });
 });
